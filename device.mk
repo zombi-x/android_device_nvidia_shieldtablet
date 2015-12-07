@@ -165,6 +165,16 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += power.tegra
 
+# Sensors
+PRODUCT_PACKAGES += sensors.tn8 \
+                    libsensors.base \
+                    libsensors.bmpx80 \
+                    libsensors.iio.lights \
+                    libsensors.ltr558als \
+                    libsensors.max44005.so \
+                    libsensors.mpl \
+                    libsensors.nvs_input
+
 # Wireless Controller
 $(call inherit-product-if-exists, vendor/nvidia/shield_common/blake-blobs.mk)
 
