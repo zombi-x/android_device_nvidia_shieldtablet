@@ -166,7 +166,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += power.tegra
 
 # Sensors
-PRODUCT_PACKAGES += sensors.tn8 \
+PRODUCT_PACKAGES += sensors.tegra \
                     libsensors.base \
                     libsensors.bmpx80 \
                     libsensors.iio.lights \
