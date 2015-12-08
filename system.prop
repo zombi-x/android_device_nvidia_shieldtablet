@@ -25,7 +25,7 @@ af.resampler.quality = 4
 persist.tegra.didim.enable = 1
 persist.tegra.didim.video = 5
 persist.tegra.didim.normal = 3
-persist.sys.usb.config=mtp
+persist.sys.usb.config=mtp,adb
 persist.sys.isUsbOtgEnabled=1
 
 # Widevine drm
