@@ -98,3 +98,30 @@ TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_tn8
 TARGET_LIBINIT_DEFINES_FILE := device/nvidia/shieldtablet/init/init_tn8.cpp
 
+## Blissify###
+
+#
+# This file sets variables that control the way modules are built
+# thorughout the system. It should not be used to conditionally
+# disable makefiles (the proper mechanism to control what gets
+# included in a build is to use PRODUCT_PACKAGES in a product
+# definition file).
+#
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := shieldtablet,wx_na_do,wx_na_wf,wx_un_do,sb_na_wf
+
+# BlissPop Configs
+TARGET_TC_ROM := 4.9-linaro
+TARGET_TC_KERNEL := 4.9-linaro
+BLISSIFY := true
+BLISS_O3 := false
+BLISS_STRICT := false
+BLISS_GRAPHITE := false
+BLISS_KRAIT := false
+BLISS_PIPE := true
+TARGET_GCC_VERSION_EXP := $(TARGET_TC_ROM)
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(TARGET_TC_KERNEL)
+
+#SaberMod
+-include vendor/bliss/config/sm.mk
