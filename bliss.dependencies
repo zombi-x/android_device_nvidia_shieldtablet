@@ -15,6 +15,6 @@
     "remote": "github",
     "repository": "CM-Shield/android_hardware_nvidia_power",
     "target_path": "hardware/nvidia/power",
-    "revision": "cm-13.0"
+    "revision": "cm-12.1"
   }
 ]
