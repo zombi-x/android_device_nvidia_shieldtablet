@@ -25,9 +25,16 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a15
+TARGET_CPU_SMP := true
 
 # Board
 TARGET_BOARD_PLATFORM := tegra
+TARGET_TEGRA_VERSION := t124
+TARGET_TEGRA_FAMILY := t12x
+
+# Raydium library version to be used
+RAYDIUM_PRODUCT_BRANCH := dev-kernel-shieldtablet8
+
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
@@ -50,6 +57,9 @@ TARGET_POWERHAL_VARIANT := tegra
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
+#USE_CUSTOM_AUDIO_POLICY := 1
+BOARD_SUPPORT_NVOICE := true
+BOARD_SUPPORT_NVAUDIOFX := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -58,7 +68,16 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/nvidia/shieldtablet/blueto
 
 # Graphics
 USE_OPENGL_RENDERER := true
+
+# Double buffered display surfaces reduce memory usage, but will decrease performance.
+# The default is to triple buffer the display surfaces.
 BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
+
+# Use Nvidia optimized renderscript driver
+OVERRIDE_RS_DRIVER := libnvRSDriver.so
+BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a15
+
+BOARD_SUPPORT_PARAGON_FUSE_UFSD := true
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -73,6 +92,7 @@ TARGET_RECOVERY_DEVICE_DIRS += device/nvidia/shieldtablet
 TARGET_RECOVERY_FSTAB := device/nvidia/shieldtablet/rootdir/etc/fstab.tn8
 
 # Wifi related defines
+BOARD_WIFI_CHIP                  := BCM43241
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd

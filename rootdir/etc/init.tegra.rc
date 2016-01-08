@@ -6,6 +6,7 @@
 #documentation without an express license agreement from NVIDIA Corporation
 #is strictly prohibited.
 
+import init.nv_dev_board.usb.rc
 import init.${ro.boot.modem}.rc
 import init.comms.rc
 
@@ -159,15 +160,6 @@ service bugreport /system/bin/dumpstate -d -p -B -z -o /data/data/com.android.sh
     oneshot
     keycodes 116 115 114
 
-# nvidiafeedback triggered by nvidiafeedback app
-service nvidiafeedback /system/bin/dumpstate -b -o /data/anr/nvfeedback.log
-    class main
-    disabled
-    oneshot
-
-on property:init.svc.nvidiafeedback=stopped
-    # change permission for nvfeedback.log file
-    chmod 0664 /data/anr/nvfeedback.log.txt
 
 # Mount usb drives as /usbdrive. Generally usb drives are formatted with FAT
 # filesystem, so we support FAT as of now.

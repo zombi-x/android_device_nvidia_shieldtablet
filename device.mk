@@ -34,12 +34,14 @@ PRODUCT_PACKAGES += \
     init.icera.rc \
     init.hdcp.rc \
     init.ndiscovery.rc \
+    init.ray_touch.rc \
     init.ray_st8.rc \
     init.t124.rc \
     init.tegra.rc \
     init.tlk.rc \
     init.tn8.rc \
     init.tn8.usb.rc \
+    init.nv_dev_board.usb.rc \
     init.tn8_common.rc \
     init.tn8_emmc.rc \
     init.ussrd.rc \
@@ -55,6 +57,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.full.xml:system/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:system/etc/permissions/android.hardware.camera.raw.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
+    frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
@@ -72,12 +75,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.nvidia.blakemanager.xml:system/etc/permissions/com.nvidia.blakemanager.xml \
     $(LOCAL_PATH)/permissions/com.nvidia.feature.xml:system/etc/permissions/com.nvidia.feature.xml \
-    $(LOCAL_PATH)/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml
+    $(LOCAL_PATH)/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml \
+    $(LOCAL_PATH)/permissions/com.nvidia.miracast.xml:system/etc/permissions/com.nvidia.miracast.xml
 
 # idc
 PRODUCT_COPY_FILES += \
   $(LOCAL_PATH)/idc/touch.idc:system/usr/idc/touch.idc \
-  $(LOCAL_PATH)/idc/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc
+  $(LOCAL_PATH)/idc/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
+  $(LOCAL_PATH)/idc/touch_fusion.idc:system/usr/idc/touch_fusion.idc
+
 
 # keylayout
 PRODUCT_COPY_FILES += \

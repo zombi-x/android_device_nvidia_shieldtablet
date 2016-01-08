@@ -140,9 +140,38 @@
         <item>0</item>
     </integer-array>
 
+    <!-- Screen brightness used to dim the screen when the user activity
+         timeout expires.  May be less than the minimum allowed brightness setting
+         that can be set by the user. -->
+    <integer name="config_screenBrightnessDim">10</integer>
+
+    <!-- Sets the minimum and maximum tilt tolerance for each possible rotation.
+         See comments in framework config.xml.
+
+         This has been tuned to support the shallow angle of the keyboard folio
+         with a typical tilt of 66 to 69 degrees.
+    -->
+    <integer-array name="config_autoRotationTiltTolerance">
+        <!-- rotation:   0 (natural)    --> <item>-25</item> <item>72</item>
+        <!-- rotation:  90 (rotate CCW) --> <item>-25</item> <item>72</item>
+        <!-- rotation: 180 (reverse)    --> <item>-25</item> <item>60</item>
+        <!-- rotation: 270 (rotate CW)  --> <item>-25</item> <item>72</item>
+    </integer-array>
+
     <!-- Eraser Cursor Default Configuration Value -->
     <add-resource type="integer" name="config_eraserCursor" />
     <integer name="config_eraserCursor">0</integer>
+
+    <!-- Max space (in MB) allocated to DownloadManager to store the downloaded files
+         if they are to be stored in DownloadManager's data dir,
+         which typically is /data/data/com.android.providers.downloads/files. -->
+    <integer name="config_downloadDataDirSize">200</integer>
+
+    <!-- When the free space available in DownloadManager's data dir falls
+         below the percentage value specified by this param, DownloadManager
+         starts removing files to try to make percentage of available
+         free space above this threshold value. -->
+    <integer name="config_downloadDataDirLowSpaceThreshold">10</integer>
 
     <!-- When a database query is executed, the results retuned are paginated
          in pages of size (in KB) indicated by this value -->
@@ -197,6 +226,10 @@
     <!-- Allow shutdown at battery level 0% even though any charger is plugged in -->
     <add-resource type="bool" name="config_allowShutdownWithCharger"/>
     <bool name="config_allowShutdownWithCharger">true</bool>
+
+    <!-- Whether enable controller mapper -->
+    <add-resource type="bool" name="config_controllerMapper"/>
+    <bool name="config_controllerMapper">true</bool>
 
     <!-- MMS user agent string -->
     <add-resource type="string" name="config_mms_user_agent"/>
