@@ -1,4 +1,4 @@
-# Copyright (c) 2014, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (c) 2014-2015, NVIDIA CORPORATION.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -48,3 +48,6 @@ allow ussrd surfaceflinger_fc:file r_file_perms;
 # thermal
 allow ussrd sysfs_thermal:dir rw_dir_perms;
 allow ussrd sysfs_thermal:file rw_file_perms;
+
+# Allow to write to nvfeedback log file
+allow ussrd anr_data_file:file write;

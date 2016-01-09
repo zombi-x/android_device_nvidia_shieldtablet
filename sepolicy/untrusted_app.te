@@ -14,3 +14,15 @@
 
 # Allow untrusted apps to access tsecb dev node
 allow untrusted_app tsec_device:chr_file rw_file_perms;
+
+# Access to read SOC family
+r_dir_file(untrusted_app, sysfs_soc)
+
+allow untrusted_app system_app_service:service_manager find;
+
+# allow to write to nvfeedback.log
+allow untrusted_app anr_data_file:file write;
+
+# allow external storage access, like gallery app
+allow untrusted_app fuseblk:dir r_dir_perms;
+allow untrusted_app fuseblk:file r_file_perms;

@@ -1,4 +1,4 @@
-# Copyright (c) 2014, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (c) 2015, NVIDIA CORPORATION.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,12 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# init - icera modem specific policies
-#
+allow init sysfs_ozmo:lnk_file read;
+allow init sysfs_nvi2c:lnk_file read;
 
-# init.rc used to create tree structure in /data/rfs/...
-allow init radio_data_icera_file:dir create_dir_perms;
-allow init radio_data_icera_file:file create_file_perms;
-allow init radio_data_icera_file:lnk_file create_file_perms;
+allow init functionfs:dir mounton;
+allow init pstorefs:dir mounton;
+allow init user_calib_file:dir mounton;
+allow init factoryconfig_file:dir mounton;
+allow init factory_file:dir mounton;
 
+allow init kernel:system module_request;
+
+allow init self:capability sys_nice;
+
+# For init to write to kmsg
+userdebug_or_eng(`
+allow init kmsg_device:chr_file write;
+')

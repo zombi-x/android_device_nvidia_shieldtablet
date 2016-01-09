@@ -1,4 +1,4 @@
-# Copyright (c) 2014, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (c) 2014-2015, NVIDIA CORPORATION.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,8 +16,7 @@ type set_hwui, domain;
 type set_hwui_exec, exec_type, file_type;
 
 init_daemon_domain(set_hwui)
-unix_socket_connect(set_hwui, property, init)
+set_prop(set_hwui, hwui_prop)
 
-#allow set_hwui default_prop:property_service set;
 allow set_hwui shell_exec:file read;
 allow set_hwui system_file:file execute_no_trans;

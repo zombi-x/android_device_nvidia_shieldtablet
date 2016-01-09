@@ -1,4 +1,4 @@
-# Copyright (c) 2014, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (c) 2014-2015, NVIDIA CORPORATION.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,3 +13,8 @@
 # limitations under the License.
 
 allow shell quadd_device:chr_file rw_file_perms;
+allow shell gpload_exec:file { read getattr execute open execute_no_trans};
+
+userdebug_or_eng(`
+r_dir_file(shell, sysfs_thermal);
+')

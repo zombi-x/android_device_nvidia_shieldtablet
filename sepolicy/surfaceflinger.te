@@ -1,4 +1,4 @@
-# Copyright (c) 2014, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (c) 2014-2015, NVIDIA CORPORATION.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -49,5 +49,18 @@ allow surfaceflinger surfaceflinger_fc:dir rw_dir_perms;
 allow surfaceflinger surfaceflinger_fc:file create_file_perms;
 
 allow surfaceflinger tegradc_device:chr_file { read ioctl open write };
+
+# Needed to call NvPHSSendThroughputHints() from surfaceflinger
+allow_use_phs(surfaceflinger);
+allow surfaceflinger ussrd_service:service_manager find;
+
+allow surfaceflinger self:capability sys_nice;
+
+allow surfaceflinger sysfs_vrr:file rw_file_perms;
+
+allow surfaceflinger pmqos_device:chr_file rw_file_perms;
+
+# Allow to write to nvfeedback log file
+allow surfaceflinger anr_data_file:file write;
 
 allow surfaceflinger sysfs_slowscan:file { open write };

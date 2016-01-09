@@ -1,4 +1,4 @@
-# Copyright (c) 2014, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (c) 2014-2015, NVIDIA CORPORATION.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,9 +19,12 @@
 allow ueventd sysfs_sysedp:file rw_file_perms;
 allow ueventd sysfs_radio:file rw_file_perms;
 allow ueventd sysfs_gpio:file rw_file_perms;
-allow ueventd sysfs_bus_usb:file rw_file_perms;
+allow ueventd sysfs_bus_usb:file w_file_perms;
+allow ueventd sysfs_pmic:file rw_file_perms;
+allow ueventd sysfs_soc:file rw_file_perms;
 allow ueventd sysfs_thermal:file rw_file_perms;
 allow ueventd sysfs_ozmo:file rw_file_perms;
 allow ueventd sysfs_nvi2c:file rw_file_perms;
 allow ueventd tegradc_device:file rw_file_perms;
+allow ueventd sysfs_lightbar:file rw_file_perms;
 allow ueventd sysfs_touch_calib:file rw_file_perms;

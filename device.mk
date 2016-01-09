@@ -149,6 +149,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.tegra
 
+# Power
+ PRODUCT_PACKAGES += power.tegra
+
 # Charger
 PRODUCT_PACKAGES += \
     charger \
