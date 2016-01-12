@@ -1,8 +1,8 @@
 # Inherit device configuration for shieldtablet.
 $(call inherit-product, device/nvidia/shieldtablet/full_shieldtablet.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common ZOMBI stuff.
+$(call inherit-product, vendor/zombi/config/common.mk)
 
-PRODUCT_NAME := cm_shieldtablet
+PRODUCT_NAME := zombi_shieldtablet
 PRODUCT_DEVICE := shieldtablet
